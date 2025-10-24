@@ -67,7 +67,16 @@ MML Code Output
 
 
 ## ⚙️ Installation
-Open a terminal and run (Requires Python 3.11+, Recommended Python 3.12)
+
+### Prerequisites
+- **Python**: 3.11+ (Recommended: Python 3.12)
+- **ffmpeg**: Required for audio processing and YouTube downloads
+- **CUDA** (Optional): For GPU-accelerated source separation
+
+### Installation Steps
+
+Open a terminal and run:
+
 ```shell
 # Miniconda3
 # For Python virtual environments, we recommend miniconda3.
@@ -85,13 +94,39 @@ $ cd ~/youtube2mml
 $ conda create -n youtube2mml python=3.12
 $ conda activate youtube2mml
 
-# Install requirements
+# Install PyTorch with CUDA support first (recommended for GPU acceleration)
+$ pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+# Install other dependencies
 $ pip install -r requirements.txt
 
 # Check system dependencies
 $ chmod +x ./manage.sh
 $ ./manage.sh start
 ```
+
+### Common Installation Issues
+
+#### NumPy Version Compatibility
+If you encounter an error about NumPy 2.x compatibility:
+```
+A module that was compiled using NumPy 1.x cannot be run in NumPy 2.3.4...
+```
+
+**Solution**: This project uses NumPy 1.26.4 (specified in requirements.txt). If you have NumPy 2.x installed:
+```bash
+pip install "numpy<2"
+```
+
+#### PyTorch Installation
+- **GPU users**: Install PyTorch with CUDA support BEFORE other dependencies
+- **CPU-only users**: Skip the PyTorch installation step; it will be installed automatically with compatible versions
+
+#### ffmpeg Required
+Make sure ffmpeg is installed on your system:
+- **Ubuntu/Debian**: `sudo apt-get install ffmpeg`
+- **macOS**: `brew install ffmpeg`
+- **Windows**: Download from [ffmpeg.org](https://ffmpeg.org/download.html)
 
 ## 🚀 Usage
 ```bash

@@ -1,2 +1,43 @@
-# 'yt-dlp' reqired package 'ffmpeg'
-yt-dlp>=2025.10.14
+# YouTube2MML Dependencies
+# Python requirement: 3.12 (Recommended)
+# System requirement: ffmpeg must be installed for yt-dlp and audio processing
+
+# Installation Instructions:
+# 1. Install PyTorch with CUDA support first:
+#    pip install torch==2.2.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu121
+# 2. Install other dependencies:
+#    pip install -r requirements.txt
+
+# Core (Python 3.12 compatible)
+numpy==1.26.4
+scipy>=1.11.0
+
+# Audio Processing
+librosa==0.10.1
+soundfile==0.12.1
+audioread>=3.0.0
+
+# YouTube Download
+# Note: Requires ffmpeg to be installed on the system
+yt-dlp>=2023.10.13
+
+# Source Separation (GPU-accelerated)
+# Note: Install PyTorch separately BEFORE installing demucs (see instructions above)
+# torch==2.2.0  # Install separately with CUDA support
+# torchaudio==2.2.0  # Install separately with CUDA support
+demucs==4.0.1
+
+# Music Transcription (Alternative: Crepe for pitch detection)
+# Note: basic-pitch not compatible with Python 3.12, using crepe instead
+crepe>=0.0.13
+tensorflow>=2.16.1  # Required by crepe
+protobuf>=3.20.3,<5.0.0
+
+# Utilities
+tqdm>=4.66.0
+pydub==0.25.1
+
+# Additional dependencies for librosa
+resampy==0.4.2
+numba>=0.57.0
+llvmlite>=0.40.0
