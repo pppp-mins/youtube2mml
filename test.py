@@ -27,9 +27,7 @@ def test_youtube_downloader():
         print("\n[Test 2] Downloading video (MP4)...")
         print("-" * 60)
         try:
-            # test_url = "https://www.youtube.com/shorts/qfXawMuo4lI"
-            # test_url = "https://youtu.be/f8rUz3crZR4?si=ruqOZ0Nj5dcbkIk7"
-            test_url = "https://youtube.com/shorts/fU9Fb2TXyW0?si=HlIpIVKNTqC5FTrF"
+            test_url = "https://www.youtube.com/shorts/qfXawMuo4lI"
             video_path = downloader.download_video(test_url)
             print(f" Video download successful!")
             print(f"  File path: {video_path}")
